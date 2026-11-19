@@ -3,6 +3,29 @@
     <channel>
         <title>dB Final Delivery</title>
         <item>
+            <title>1.1.0</title>
+            <pubDate>Thu, 19 Nov 2026 19:31:58 +0100</pubDate>
+            <sparkle:version>1.1.0</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.0
+
+- Asystent AI „Wypełnij z label copy”: lista utworów i metadane (tytuły, wykonawcy, kompozytorzy, ISRC, UPC, gatunek, język) z PDF / DOCX / TXT / zdjęcia, do zatwierdzenia w przeglądzie zmian; przez konto dB Records
+- Importuj ▾: pliki audio albo z label copy (asystent AI)
+- Uwagi kontroli Red Book z tytułem, wyjaśnieniem i „Pokaż” prowadzącym do konkretnego pola, utworu, kolumny lub osi czasu
+- Inserty master domyślnie stosowane w eksporcie; ostrzeżenie w Eksporcie, gdy są wyłączone
+- Presety eksportu nazwane wg rodzaju (CD WAV, Streaming WAV, Hi-Res FLAC, MP3 (CBR)…) z realnymi parametrami w opisie
+- Zakres eksportu: cały album, zaznaczone utwory albo wybrane
+- Szablon nazw plików: tokeny {upc} / {ean} i {n}
+- Ustawienia (⌘,): autozapis projektu, folder projektów, odsłuch i edycja, eksport, asystent AI, aktualizacje
+- Samouczek przy pierwszym uruchomieniu i projekt demo (Pomoc → „Samouczek…”)
+- Zgłoszenia (⇧⌘F) i „Eksportuj do aplikacji” zgodne z dB Records App 1.77
+- Instalator DMG „przeciągnij do Programów”
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.0/dB-Final-Delivery-1.1.0.zip" length="14482092" type="application/octet-stream" sparkle:edSignature="eTXjlWs82EMRI0L1ox6np+twyF9BnJ2y02O2AfDbO5009quuCDXrG3mBLVC3ZUIo8GtbpprAV46t6wTpiGanBw=="/>
+        </item>
+        <item>
             <title>1.0.0</title>
             <pubDate>Thu, 19 Nov 2026 16:56:44 +0100</pubDate>
             <sparkle:version>1.0.0</sparkle:version>
