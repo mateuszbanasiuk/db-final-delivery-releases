@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>dB Final Delivery</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Thu, 19 Nov 2026 16:56:44 +0100</pubDate>
+            <sparkle:version>1.0.0</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.0.0
+
+Pierwsze wydanie.
+
+- DDP 2.00 (Red Book) z CD-TEXT, PQ sheet (TXT / CSV / HTML / PDF), CUE/TOC
+- Walidator Red Book: czasy, pauzy, ISRC, UPC/EAN, CD-TEXT, poziomy
+- Eksport hi-res (WAV / AIFF / BWF / FLAC), streaming 96/24, CD 44,1/16 z ditherem, AAC / ALAC, MP3
+- Strony winylowe z planerem i side sheetem
+- Dolby Atmos: inspekcja ADM BWF, downmix, pomiar −18 LKFS / −1 dBTP, arkusz dostawy
+- Odsłuch z osią czasu CD, host wtyczek AU, podgląd w docelowej rozdzielczości, mierniki
+- Odtwarzacz dla klienta (macOS + wersja WWW)
+- Automatyczne aktualizacje (Sparkle)
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.0.0/dB-Final-Delivery-1.0.0.zip" length="13176314" type="application/octet-stream" sparkle:edSignature="ZcYWxC2NWdczdCM5dzbRQJxCLwat6jKdhDy/1/jvbWZJY0u4RURNJma213oql7XjGbDE3eZqumB7SmAIaNOyAA=="/>
+        </item>
+    </channel>
+</rss>
