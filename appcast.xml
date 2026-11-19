@@ -3,6 +3,24 @@
     <channel>
         <title>dB Final Delivery</title>
         <item>
+            <title>1.1.1</title>
+            <pubDate>Thu, 19 Nov 2026 20:16:41 +0100</pubDate>
+            <sparkle:version>1.1.1</sparkle:version>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.1
+
+- Zgłoszenia (⇧⌘F) jak w dB Records App: po zalogowaniu załączniki (zrzuty, filmy, pliki), zakładka „Moje zgłoszenia” z odpowiedzią zespołu, „Zgłoś kolejną”
+- Drugi silnik SRC: SoX libsoxr VHQ (Ustawienia → Eksport), obok Apple Mastering; użyty silnik w podtytule presetu i w DELIVERY_REPORT
+- Postęp eksportu widoczny w nagłówku sekcji (pasek, procent, etap)
+- Szablon nazw plików: tokeny {upc} / {ean} i {n}
+- Karta „Wyniki” bez ucinania przycisków
+- Nota licencyjna składników open source (LAME, libsoxr, Sparkle) w aplikacji i w DMG
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.1/dB-Final-Delivery-1.1.1.zip" length="15006749" type="application/octet-stream" sparkle:edSignature="s2TKYiNq5TEOhm0nJYw8Xn2j3xhzzMIYAeHXbjxgkH1NOKDO6s1ioCcOzxJRTHqGRm1tasKoJGvDFrQZWAL5AA=="/>
+        </item>
+        <item>
             <title>1.1.0</title>
             <pubDate>Thu, 19 Nov 2026 19:31:58 +0100</pubDate>
             <sparkle:version>1.1.0</sparkle:version>
