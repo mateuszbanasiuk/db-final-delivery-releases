@@ -3,6 +3,31 @@
     <channel>
         <title>dB Final Delivery</title>
         <item>
+            <title>1.1.3</title>
+            <pubDate>Fri, 20 Nov 2026 02:13:48 +0100</pubDate>
+            <sparkle:version>1.1.3</sparkle:version>
+            <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.3
+
+- Nowy dolny pasek: linia programu (klik = przeskok, ⌥-przeciągnięcie = pętla), licznik z pozostałym czasem utworu, mierniki LUFS S i true peak, chip wyjścia audio, suwak głośności monitoringu
+- Jakość odsłuchu w pięciu trybach: Oryginalna · 48 / 24 · 44,1 / 16 (SRC Apple Mastering + dither jak w eksporcie) · MP3 320 · MP3 128 — tryby MP3 to prawdziwa symulacja kodeka (LAME CBR → dekoder Apple), z podanym opóźnieniem toru
+- Pętla zakresu (L): zaznacz zakres na osi czasu i naciśnij L, albo ⌥-przeciągnij po linii programu; pętla zawija się bez przerwy w dźwięku
+- Asystent AI: label copy i wytyczne także z arkuszy XLSX / XLS; gdy label copy podaje kilka wariantów (np. tytuły po polsku i angielsku), asystent pyta, których użyć; opcja „Bez polskich znaków” (ą→a, ł→l) domyślnie włączona
+- Wtyczki: okna AU otwierane bezpiecznie (instancje AUv2 na wątku głównym, widoki przez fabrykę Cocoa UI) — koniec crashy FabFilter; okna pływają nad oknem głównym, klik przełącza okno, ⇧-klik / pinezka / „Otwórz w dodatkowym oknie” otwierają kilka naraz
+- Każde pokręcenie parametru wtyczki to krok undo (zapis po 1 s ciszy); 200 poziomów cofania dla wszystkich edycji projektu
+- Biblioteka wtyczek: suwak szerokości, ciaśniejsze wiersze, ⌥-klik rozwija / zwija wszystkie grupy; pełne nazwy wtyczek i presetów w slotach; inserty: przeciąganie zmienia kolejność, ⌥-przeciąganie kopiuje insert, ⌘-klik to bypass, ⌘⌃-klik (lub ⌘⌥) dezaktywuje wtyczkę bez utraty stanu
+- Auto-Gain (Mastering): propozycja clip gainu każdego utworu — wyrównanie LUFS do najgłośniejszego, poprawka na przejścia, sufit true peak; tabela z zatwierdzeniem
+- Fade'y: wygięcie krzywej (⌘ + przeciąganie uchwytu, pole „Wygięcie”), skróty D / G / F na osi, fala skalowana obwiednią; graf odsłuchu przeładowuje się po zmianie crossfade'u i kształtów
+- Zakładki Winyl / Atmos w Masteringu wyszarzone, dopóki projekt nie ma stron winylowych / mastera ADM
+- Układ CD: łańcuch crossfade'ów nie może przekroczyć długości utworu (test „paniczny”: 1500 losowych operacji + eksport)
+- Zewnętrzny edytor: wybór aplikacji w Ustawieniach; powrót zawsze jako nowy plik w „Edited/”
+- Znak dB w aplikacji 1:1 z ikoną w Docku
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.3/dB-Final-Delivery-1.1.3.zip" length="15990203" type="application/octet-stream" sparkle:edSignature="4NrVQuP/U1dsNUZd3nHumKWYneNUkcfHuVbTVQHXW9ra72kkWjo3Xiohepp+WDIKfSZNZTdZBo8fEH49Ju2gCg=="/>
+        </item>
+        <item>
             <title>1.1.2</title>
             <pubDate>Thu, 19 Nov 2026 22:50:49 +0100</pubDate>
             <sparkle:version>1.1.2</sparkle:version>
@@ -36,29 +61,6 @@
 - Nota licencyjna składników open source (LAME, libsoxr, Sparkle) w aplikacji i w DMG
 ]]></description>
             <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.1/dB-Final-Delivery-1.1.1.zip" length="15006749" type="application/octet-stream" sparkle:edSignature="s2TKYiNq5TEOhm0nJYw8Xn2j3xhzzMIYAeHXbjxgkH1NOKDO6s1ioCcOzxJRTHqGRm1tasKoJGvDFrQZWAL5AA=="/>
-        </item>
-        <item>
-            <title>1.1.0</title>
-            <pubDate>Thu, 19 Nov 2026 19:31:58 +0100</pubDate>
-            <sparkle:version>1.1.0</sparkle:version>
-            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.0
-
-- Asystent AI „Wypełnij z label copy”: lista utworów i metadane (tytuły, wykonawcy, kompozytorzy, ISRC, UPC, gatunek, język) z PDF / DOCX / TXT / zdjęcia, do zatwierdzenia w przeglądzie zmian; przez konto dB Records
-- Importuj ▾: pliki audio albo z label copy (asystent AI)
-- Uwagi kontroli Red Book z tytułem, wyjaśnieniem i „Pokaż” prowadzącym do konkretnego pola, utworu, kolumny lub osi czasu
-- Inserty master domyślnie stosowane w eksporcie; ostrzeżenie w Eksporcie, gdy są wyłączone
-- Presety eksportu nazwane wg rodzaju (CD WAV, Streaming WAV, Hi-Res FLAC, MP3 (CBR)…) z realnymi parametrami w opisie
-- Zakres eksportu: cały album, zaznaczone utwory albo wybrane
-- Szablon nazw plików: tokeny {upc} / {ean} i {n}
-- Ustawienia (⌘,): autozapis projektu, folder projektów, odsłuch i edycja, eksport, asystent AI, aktualizacje
-- Samouczek przy pierwszym uruchomieniu i projekt demo (Pomoc → „Samouczek…”)
-- Zgłoszenia (⇧⌘F) i „Eksportuj do aplikacji” zgodne z dB Records App 1.77
-- Instalator DMG „przeciągnij do Programów”
-]]></description>
-            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.0/dB-Final-Delivery-1.1.0.zip" length="14482092" type="application/octet-stream" sparkle:edSignature="eTXjlWs82EMRI0L1ox6np+twyF9BnJ2y02O2AfDbO5009quuCDXrG3mBLVC3ZUIo8GtbpprAV46t6wTpiGanBw=="/>
         </item>
     </channel>
 </rss>
