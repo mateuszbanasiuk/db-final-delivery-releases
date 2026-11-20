@@ -3,6 +3,20 @@
     <channel>
         <title>dB Final Delivery</title>
         <item>
+            <title>1.1.5</title>
+            <pubDate>Fri, 20 Nov 2026 04:00:37 +0100</pubDate>
+            <sparkle:version>1.1.5</sparkle:version>
+            <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.5
+
+- Eksport: na końcu każdy zapisany plik jest czytany ponownie i porównywany z sumą MD5 policzoną przy zapisie (CHECKSUMS.md5, CHECKSUM.MD5 w DDP); niezgodność to błąd w raporcie i w oknie, nie cicha dostawa
+- Eksport jest w pełni offline — nie korzysta z urządzenia audio ani silnika odsłuchu, więc przejęcie sterownika przez inny program nie ma wpływu na pliki (dotyczy także publikacji do dB Records App)
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.5/dB-Final-Delivery-1.1.5.zip" length="16104815" type="application/octet-stream" sparkle:edSignature="sVEtfqchdXEH+fzK4jgkPJ15JS8IAelsKoL34uh/3tPzhS8e0Wflicys/VTjUoEZOM81oInSZ/sejlklGGC2Cw=="/>
+        </item>
+        <item>
             <title>1.1.4</title>
             <pubDate>Fri, 20 Nov 2026 03:49:04 +0100</pubDate>
             <sparkle:version>1.1.4</sparkle:version>
@@ -44,23 +58,6 @@
 - Znak dB w aplikacji 1:1 z ikoną w Docku
 ]]></description>
             <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.3/dB-Final-Delivery-1.1.3.zip" length="15990203" type="application/octet-stream" sparkle:edSignature="4NrVQuP/U1dsNUZd3nHumKWYneNUkcfHuVbTVQHXW9ra72kkWjo3Xiohepp+WDIKfSZNZTdZBo8fEH49Ju2gCg=="/>
-        </item>
-        <item>
-            <title>1.1.2</title>
-            <pubDate>Thu, 19 Nov 2026 22:50:49 +0100</pubDate>
-            <sparkle:version>1.1.2</sparkle:version>
-            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.2
-
-- Ekran startowy: Nowy projekt (kreator), Otwórz projekt…, Projekt demo / Samouczek, lista ostatnich i odzyskiwanie kopii awaryjnej — zamiast pustego okna z błędem
-- Naprawione odzyskiwanie kopii awaryjnej: dialog nie pokazywał się, gdy w folderze autosave były jakiekolwiek pliki
-- Pusty projekt nie zgłasza już błędu i nie blokuje presetów eksportu
-- Asystent AI czyta wytyczne dostawy (specyfikacja wytwórni, mail A&R: PDF, DOC, DOCX, RTF, TXT lub wklejony tekst) i proponuje: CD-Text, offset PQ, wymagane presety i ich format, szablony nazw plików, podfoldery, pauzy, kody EAN/ISRC oraz listę rzeczy do ręcznego sprawdzenia (dopisywaną do notatek projektu)
-- Szablon nazw plików: tokeny {khz} i {bits} (np. {upc}_{isrc}_{khz}_{bits} → 5054197139215_GBAYC2200680_192_24.wav)
-]]></description>
-            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.2/dB-Final-Delivery-1.1.2.zip" length="15310010" type="application/octet-stream" sparkle:edSignature="4zHfOuF30TpDHrlcac4i4BqIY6QE4hUFty9A9P4kDo538vuB8cPNzomsLjZVX5jXp0stnMIIoc1mxzqQEGUpBQ=="/>
         </item>
     </channel>
 </rss>
