@@ -3,6 +3,24 @@
     <channel>
         <title>dB Final Delivery</title>
         <item>
+            <title>1.1.4</title>
+            <pubDate>Fri, 20 Nov 2026 03:49:04 +0100</pubDate>
+            <sparkle:version>1.1.4</sparkle:version>
+            <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.4
+
+- Eksport: pasek postępu i log znów działają (przekaźnik postępu ginął tuż po starcie — eksport szedł, ale okno stało na „0% Start…”); eksport trwa dalej po przejściu na inną zakładkę i wraca z tym samym postępem; po zakończeniu dźwięk („…” obok „Eksportuj” albo Ustawienia → Eksport)
+- Eksport szybciej: pliki per utwór (hi-res, streaming, MP3, AAC) renderują się równolegle, a obraz CD (BIN/CUE) jest kopią IMAGE.DAT z DDP tego samego eksportu zamiast drugiego renderu; przełącznik „Obciążenie procesora przy eksporcie” (oszczędne / normalne / maksymalne) w „…” i w Ustawieniach
+- Eksport: wtyczki AUv2 w renderze offline ładowane tą samą ścieżką co w odsłuchu (`AVAudioUnitEffect`) i w trybie offline AU; w opisie postępu widać tempo renderu (np. „10,7×”); próbki NaN / ∞ z wtyczki trafiają do pliku jako cisza i są zgłaszane; pregap utworu 1 w obrazie z insertami master to cyfrowa cisza (bez szumu ditheru ±2 LSB)
+- Asystent AI: dopytania przesyłane w formie, którą akceptuje Anthropic (schemat structured outputs ma limit złożoności); warianty tytułów po polsku / angielsku rozlewają się na utwory po wyborze
+- Eksport: anulowanie usuwa katalog tego eksportu razem z częściowymi plikami (nie zostaje pół dostawy do sprzątania)
+- Publikacja do dB Records App: kolejna wersja podmienia poprzednią — plik o tej samej nazwie zawsze, a plik audio o tym samym numerze utworu i rozszerzeniu także przy zmienionym tytule (przełącznik w arkuszu); lista pokazuje, co będzie nowe, bez zmian, a co podmieni
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.4/dB-Final-Delivery-1.1.4.zip" length="16092399" type="application/octet-stream" sparkle:edSignature="ftOSIqg5MiMCWvfOoPz13GMJDOFMPSgj3qlXVcFZuM9Llm1XNxTxe5ZdmsecYE9un4yJMiRjs5TnyHYoqXWiCA=="/>
+        </item>
+        <item>
             <title>1.1.3</title>
             <pubDate>Fri, 20 Nov 2026 02:13:48 +0100</pubDate>
             <sparkle:version>1.1.3</sparkle:version>
@@ -43,24 +61,6 @@
 - Szablon nazw plików: tokeny {khz} i {bits} (np. {upc}_{isrc}_{khz}_{bits} → 5054197139215_GBAYC2200680_192_24.wav)
 ]]></description>
             <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.2/dB-Final-Delivery-1.1.2.zip" length="15310010" type="application/octet-stream" sparkle:edSignature="4zHfOuF30TpDHrlcac4i4BqIY6QE4hUFty9A9P4kDo538vuB8cPNzomsLjZVX5jXp0stnMIIoc1mxzqQEGUpBQ=="/>
-        </item>
-        <item>
-            <title>1.1.1</title>
-            <pubDate>Thu, 19 Nov 2026 20:16:41 +0100</pubDate>
-            <sparkle:version>1.1.1</sparkle:version>
-            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.1
-
-- Zgłoszenia (⇧⌘F) jak w dB Records App: po zalogowaniu załączniki (zrzuty, filmy, pliki), zakładka „Moje zgłoszenia” z odpowiedzią zespołu, „Zgłoś kolejną”
-- Drugi silnik SRC: SoX libsoxr VHQ (Ustawienia → Eksport), obok Apple Mastering; użyty silnik w podtytule presetu i w DELIVERY_REPORT
-- Postęp eksportu widoczny w nagłówku sekcji (pasek, procent, etap)
-- Szablon nazw plików: tokeny {upc} / {ean} i {n}
-- Karta „Wyniki” bez ucinania przycisków
-- Nota licencyjna składników open source (LAME, libsoxr, Sparkle) w aplikacji i w DMG
-]]></description>
-            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.1/dB-Final-Delivery-1.1.1.zip" length="15006749" type="application/octet-stream" sparkle:edSignature="s2TKYiNq5TEOhm0nJYw8Xn2j3xhzzMIYAeHXbjxgkH1NOKDO6s1ioCcOzxJRTHqGRm1tasKoJGvDFrQZWAL5AA=="/>
         </item>
     </channel>
 </rss>
