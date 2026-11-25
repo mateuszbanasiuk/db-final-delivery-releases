@@ -3,6 +3,57 @@
     <channel>
         <title>dB Final Delivery</title>
         <item>
+            <title>1.2.0</title>
+            <pubDate>Wed, 25 Nov 2026 22:12:54 +0100</pubDate>
+            <sparkle:version>1.2.0</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.2.0
+
+### Kontrola i odsłuch
+
+- Porównanie wersji masterów (null test stereo): Plik → „Porównaj wersje masterów…”, pozycja w grupie Odsłuch; sloty A / B (WAV, AIFF, FLAC, MP3, M4A albo utwór projektu „jak streaming”), automatyczne wyrównanie czasu, dopasowanie poziomu RMS, odsłuch A / B / różnica (⇧S, przenikanie 15 ms), różnica ×10 / ×100 z limitem −1 dBTP, mierniki, tabela liczb, wykres RMS różnicy, werdykt, raport COMPARE_REPORT.txt i kopiowanie podsumowania
+- Kontrola DDP (Plik → „Sprawdź zestaw DDP…”, ⇧⌘D; kafelek „Sprawdź DDP” w kreatorze; sekcja pod Eksportem): inspekcja cudzego albo własnego zestawu — DDPID, DDPMS, PQDESCR, CD-TEXT, długość obrazu, sumy MD5 — z plakietką „Zestaw poprawny / Do sprawdzenia / Błędy”, tabelą utworów (index 00/01, długość, ISRC, CD-TEXT) i listą uwag (brak CHECKSUM.MD5, duplikaty i format ISRC, znaki CD-TEXT spoza ISO 8859-1, program dłuższy niż 79:57)
+- Odsłuch obrazu DDP w osobnym silniku (IMAGE.DAT strumieniowo, LE/BE): transport ⏮ ▶ ⏸ ⏹ ⏭, klik w utwór = odsłuch od index 01, pasek pozycji, mierniki LUFS S / I i true peak jak w pasku transportu, czas płyty i utworu; to samo urządzenie wyjściowe co odsłuch projektu, oba nigdy nie grają naraz
+- „Zmierz głośność”: integrated LUFS, true peak i LRA każdego utworu oraz całości programu, liczone z obrazu w tle; raport „DDP_QC_REPORT.txt” do wybranego miejsca
+- Katalog DDP (albo plik DDPID) upuszczony na okno Kontroli DDP lub otwarty z Findera trafia prosto do kontroli
+
+### Płyta CD
+
+- Wypalanie płyty referencyjnej CD-R (Eksport → „Wypal CD-R…”): nagrywarka DiscRecording (zewnętrzna USB), prędkość (domyślnie najniższa ≥ 8×), symulacja (test write), weryfikacja odczytem sektor po sektorze, kopie; Red Book disc-at-once z układem PQ projektu jak w DDP (pregap, indeksy, ISRC, UPC, CD-Text; bez SCMS); obraz 44,1/16 renderowany przed wypalaniem, błędy Red Book blokują jak przy DDP
+- CD-TEXT wielojęzyczny: do 7 dodatkowych języków (8 bloków wg Red Book) — „Dodaj język…” w karcie „Na płycie — CD-TEXT”, zakładki języków dla albumu, segment języka w inspektorze utworu; CDTEXT.BIN z blokami 0…7 i poprawnym SIZE INFO, PQ sheet z sekcją „Dodatkowe języki CD-Text” (TXT/CSV/HTML/PDF), kontrola CT-020…CT-025 (powtórzony język, długość, Latin-1, brakujące tytuły, limit bloków); plik z jednym językiem bez zmian bajt w bajt
+- Poprawka kodu języka EBU dla ukraińskiego w CD-TEXT (0x49; dotąd 0x5A = perski)
+
+### Eksport i szablony
+
+- Szablony wytwórni: presety eksportu, ustawienia projektu (CD-Text, język, offset PQ, pauza), wytyczne dostawy i lista kontrolna „do sprawdzenia ręcznie” zapisane pod nazwą (np. „Warner Classics”); zastosowanie w kreatorze nowego projektu i w Eksporcie → Szablony, zapis z Eksportu i z arkusza „Wypełnij z label copy”; zarządzanie w Ustawieniach → Szablony wytwórni, wymiana między studiami plikiem .dbfdtemplate
+- Jeden przebieg łańcucha master dla wszystkich presetów per utwór: przy kilku presetach plikowych (CD WAV, Streaming, Hi-Res, MP3, AAC / ALAC, odtwarzacz) inserty master i Clip FX liczone są raz na utwór („Łańcuch master: utwór 3 z 12”), a każdy preset robi już tylko SRC, dither i zapis — wynik bajt w bajt ten sam, eksport krótszy mniej więcej o czas łańcucha razy liczba presetów minus jeden; program trzymany tymczasowo w ukrytym katalogu albumu (albo w katalogu tymczasowym, gdy wolumin dostawy jest sieciowy lub ciasny; przy braku miejsca eksport idzie po staremu), sprzątany po eksporcie i po anulowaniu (DDP / obraz CD i winyl renderują po staremu, drugi render QC zawsze świeży)
+- Odtwarzacz: pliki waveformów w payloadzie mają stałą kolejność pól — dwa eksporty tego samego projektu dają identyczne bajty
+- DELIVERY_REPORT.txt: sekcja „Głośność — pomiar z zapisanych plików” — integrated LUFS, true peak (dBTP) i LRA każdego utworu i całego programu dla każdego presetu audio (pliki per utwór, strony winylu, obraz DDP / CD z utworami wg układu płyty), mierzone podczas weryfikacji MD5 z tego samego odczytu; ostrzeżenie EX-LOUD, gdy true peak > −0,1 dBTP albo integrated > −8 LUFS (w raporcie, logu i na karcie „Dostawa gotowa”); plik kodowany, którego dekoder nie zmierzył, dostaje uwagę EX-LOUD-SKIP zamiast cichego braku wiersza
+
+### Stabilność renderu offline
+
+- Strażnik tempa renderu: gdy eksport idzie wolniej niż 0,5× czasu rzeczywistego przez 5 s albo jedno wywołanie wtyczek trwa ponad 10 s, w pasku postępu i w logu pojawia się „Render idzie wolno (0,3×) — wtyczka X” (nazwa najwolniejszej wtyczki łańcucha); render nie jest przerywany, ostrzeżenie trafia też do raportu (EX-SLOW)
+- Profil zgodności wtyczek: znane dziwactwa (dziś THE OVEN — blok renderu poniżej 4096 ramek psuje pamięć) są egzekwowane przy każdej instancji offline, a log eksportu dostaje notatkę, gdy wtyczka ma wpis
+- Ustawienia → Eksport → „Sprawdź wtyczki offline”: każda wtyczka insertów master projektu jest ładowana offline jak w eksporcie i renderuje 3 s szumu — tempo, szczyt, próbki NaN / ∞, czas instancji
+- Kontrola jakości: „Podwójny render DDP (porównanie MD5)” (Ustawienia → Eksport i menu „…”) renderuje obraz CD drugi raz i porównuje sumy; różnica to ostrzeżenie EX-NONDETERMINISTIC w raporcie z nazwami wtyczek łańcucha master
+- Render wtyczek w osobnym procesie: inserty master i Clip FX w eksporcie liczy proces pomocniczy „DBDeliveryRenderHelper” (jeden na strumień, ten sam kod, blok 4096 i tryb offline — pliki bit w bit te same). Gdy wtyczka przerwie pracę (np. SIGSEGV), aplikacja i pozostałe dostawy pracują dalej: utwór jest raz ponawiany świeżym procesem, a przy drugiej awarii preset kończy się błędem „Wtyczka „X” przerwała pracę podczas renderu utworu 3 (sygnał SIGSEGV) — plik nie został zapisany; sprawdź wtyczkę (Ustawienia → Eksport → Sprawdź wtyczki offline)” bez częściowych plików. Przełącznik „Render wtyczek w osobnym procesie” w Ustawieniach → Eksport (domyślnie włączony), w logu eksportu linia „Render wtyczek: osobny proces (PID …)” / „w procesie”; anulowanie eksportu zamyka procesy pomocnicze; odsłuch bez zmian (w aplikacji)
+- Raporty awarii: po nieoczekiwanym zamknięciu aplikacji baner „Aplikacja ostatnio przerwała pracę — wyślij zgłoszenie” otwiera arkusz zgłoszeń z dołączonym skrótem diagnostyki (MetricKit); raporty leżą w Application Support/dB Final Delivery/Crashes
+
+### Interfejs
+
+- Eksport: obok procentów „pozostało ok. 2 min” — szacunek z wygładzonego tempa (pojawia się po 5 % i 10 s, zaokrąglony do 10 s / 1 min, bez skoków w górę); ten sam napis w nagłówku sekcji i w karcie postępu
+- Postęp eksportu na ikonie w Docku (pasek na kafelku), bounce ikony po zakończeniu, gdy okno nie jest aktywne
+- Powiadomienie systemowe „Dostawa gotowa — nr katalogowy · liczba presetów · czas” z akcją „Pokaż w Finderze”, tylko gdy aplikacja nie jest na pierwszym planie; prośba o zgodę przy pierwszym eksporcie; przełącznik w Ustawieniach → Eksport obok „Dźwięk po zakończeniu” i w menu „…”
+- Karta „Dostawa gotowa” po eksporcie zamiast samego logu: album, presety z rozmiarem, czasem i głośnością programu (LUFS / dBTP), uwagi z raportu jako klikane pigułki z treścią i „Pokaż”, przyciski „Pokaż w Finderze”, „Eksportuj do aplikacji…”, „Wypal CD-R…”, „Pokaż raport” (DELIVERY_REPORT.txt w arkuszu), lista plików zwinięta; stany „Dostawa częściowa” i „Dostawa nie powstała”
+- Lista kontrolna przed eksportem (nad presetami): uwagi Red Book / CD-TEXT z checkboxem „sprawdzone”, licznik „3 z 5 sprawdzone”, „Pokaż” skacze do miejsca; stan zapamiętany per projekt (poza plikiem projektu), uwaga, która zniknie i wróci, jest znowu do sprawdzenia; błędy nadal blokują DDP / CD
+- Pomoc → „Skróty klawiszowe” (⌘/): tabela wszystkich skrótów (menu, sekcje ⌘1–⌘0, oś czasu R / T / N / L / D / G / F, ⇧S w porównaniu) z filtrem i „Kopiuj listę”; pozycje menu biorą skróty z tej samej listy
+- „Ogranicz ruch” z Dostępności: każda animacja i każde przenikanie w aplikacji są wtedy natychmiastowe
+]]></description>
+            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.2.0/dB-Final-Delivery-1.2.0.zip" length="21716454" type="application/octet-stream" sparkle:edSignature="/UAZznfUveb3440T18IEwhM4TaAhFs1ib9ZOJ9tDp1wARuXvPeIe2fuljLgkDzwhq4KgrNbxXv+wFPce5Tj1AA=="/>
+        </item>
+        <item>
             <title>1.1.5</title>
             <pubDate>Fri, 20 Nov 2026 04:00:37 +0100</pubDate>
             <sparkle:version>1.1.5</sparkle:version>
@@ -33,31 +84,6 @@
 - Publikacja do dB Records App: kolejna wersja podmienia poprzednią — plik o tej samej nazwie zawsze, a plik audio o tym samym numerze utworu i rozszerzeniu także przy zmienionym tytule (przełącznik w arkuszu); lista pokazuje, co będzie nowe, bez zmian, a co podmieni
 ]]></description>
             <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.4/dB-Final-Delivery-1.1.4.zip" length="16092399" type="application/octet-stream" sparkle:edSignature="ftOSIqg5MiMCWvfOoPz13GMJDOFMPSgj3qlXVcFZuM9Llm1XNxTxe5ZdmsecYE9un4yJMiRjs5TnyHYoqXWiCA=="/>
-        </item>
-        <item>
-            <title>1.1.3</title>
-            <pubDate>Fri, 20 Nov 2026 02:13:48 +0100</pubDate>
-            <sparkle:version>1.1.3</sparkle:version>
-            <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## dB Final Delivery 1.1.3
-
-- Nowy dolny pasek: linia programu (klik = przeskok, ⌥-przeciągnięcie = pętla), licznik z pozostałym czasem utworu, mierniki LUFS S i true peak, chip wyjścia audio, suwak głośności monitoringu
-- Jakość odsłuchu w pięciu trybach: Oryginalna · 48 / 24 · 44,1 / 16 (SRC Apple Mastering + dither jak w eksporcie) · MP3 320 · MP3 128 — tryby MP3 to prawdziwa symulacja kodeka (LAME CBR → dekoder Apple), z podanym opóźnieniem toru
-- Pętla zakresu (L): zaznacz zakres na osi czasu i naciśnij L, albo ⌥-przeciągnij po linii programu; pętla zawija się bez przerwy w dźwięku
-- Asystent AI: label copy i wytyczne także z arkuszy XLSX / XLS; gdy label copy podaje kilka wariantów (np. tytuły po polsku i angielsku), asystent pyta, których użyć; opcja „Bez polskich znaków” (ą→a, ł→l) domyślnie włączona
-- Wtyczki: okna AU otwierane bezpiecznie (instancje AUv2 na wątku głównym, widoki przez fabrykę Cocoa UI) — koniec crashy FabFilter; okna pływają nad oknem głównym, klik przełącza okno, ⇧-klik / pinezka / „Otwórz w dodatkowym oknie” otwierają kilka naraz
-- Każde pokręcenie parametru wtyczki to krok undo (zapis po 1 s ciszy); 200 poziomów cofania dla wszystkich edycji projektu
-- Biblioteka wtyczek: suwak szerokości, ciaśniejsze wiersze, ⌥-klik rozwija / zwija wszystkie grupy; pełne nazwy wtyczek i presetów w slotach; inserty: przeciąganie zmienia kolejność, ⌥-przeciąganie kopiuje insert, ⌘-klik to bypass, ⌘⌃-klik (lub ⌘⌥) dezaktywuje wtyczkę bez utraty stanu
-- Auto-Gain (Mastering): propozycja clip gainu każdego utworu — wyrównanie LUFS do najgłośniejszego, poprawka na przejścia, sufit true peak; tabela z zatwierdzeniem
-- Fade'y: wygięcie krzywej (⌘ + przeciąganie uchwytu, pole „Wygięcie”), skróty D / G / F na osi, fala skalowana obwiednią; graf odsłuchu przeładowuje się po zmianie crossfade'u i kształtów
-- Zakładki Winyl / Atmos w Masteringu wyszarzone, dopóki projekt nie ma stron winylowych / mastera ADM
-- Układ CD: łańcuch crossfade'ów nie może przekroczyć długości utworu (test „paniczny”: 1500 losowych operacji + eksport)
-- Zewnętrzny edytor: wybór aplikacji w Ustawieniach; powrót zawsze jako nowy plik w „Edited/”
-- Znak dB w aplikacji 1:1 z ikoną w Docku
-]]></description>
-            <enclosure url="https://github.com/mateuszbanasiuk/db-final-delivery-releases/releases/download/v1.1.3/dB-Final-Delivery-1.1.3.zip" length="15990203" type="application/octet-stream" sparkle:edSignature="4NrVQuP/U1dsNUZd3nHumKWYneNUkcfHuVbTVQHXW9ra72kkWjo3Xiohepp+WDIKfSZNZTdZBo8fEH49Ju2gCg=="/>
         </item>
     </channel>
 </rss>
